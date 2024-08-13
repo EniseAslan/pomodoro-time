@@ -1,0 +1,62 @@
+body {
+  background-image: url(sonja-langford-eIkbSc3SDtI-unsplash.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #010101;
+  background-color: rgba(255, 255, 255, 0.5);
+  background-blend-mode: lighten;
+  height: 100vh;
+  font-family: "Roboto Mono", monospace;
+}
+
+.App {
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.pomodoro {
+  font-size: 6em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.message {
+  font-size: 0.5em;
+  min-height: 1.3em;
+  margin-bottom: 0.5em;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.btn-add,
+.btn-stop,
+.btn-reset {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 28px;
+  border-radius: 50%;
+  color: #6b3232;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-group input {
+  font-size: 0.5em;
+  padding: 5px;
+  margin: 5px;
+  width: 60px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #9d8e8e;
+ 
+}

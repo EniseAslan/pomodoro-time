@@ -59,6 +59,8 @@ function Form() {
     setSeconds(0);
     setDisplayMessage(false);
     clearInterval(intervalId);
+    setInputMinutes(0);
+    setInputSeconds(0);
   };
 
   const timerMinutes = minutes < 10 ? `0${minutes}` : minutes;
@@ -66,41 +68,40 @@ function Form() {
 
   return (
     <div className="pomodoro">
-      <div className="input-group"> 
-      
+      <div className="input-group">
         <input
-        
           type="number"
           value={inputMinutes}
           onChange={(e) => setInputMinutes(e.target.value)}
-          placeholder="Dakika"
+          min={"0"}
         />
         <input
           type="number"
           value={inputSeconds}
           onChange={(e) => setInputSeconds(e.target.value)}
-          placeholder="Saniye"
+          min={"0"}
         />
       </div>
+      <div className="body-timer">
+        <div className="message">
+          {displayMessage && <div>Time For A Break!</div>}
+        </div>
 
-      <div className="message">
-        {displayMessage && <div>Time For A Break!</div>}
-      </div>
+        <div className="timer">
+          {timerMinutes}:{timerSeconds}
+        </div>
 
-      <div className="timer">
-        {timerMinutes}:{timerSeconds}
-      </div>
-
-      <div className="btn">
-        <button id="start" className="btn-add" onClick={startTimer}>
-          <MdOutlinePlayCircle />
-        </button>
-        <button id="stop" className="btn-stop" onClick={stopTimer}>
-          <FaRegStopCircle />
-        </button>
-        <button id="reset" className="btn-reset" onClick={resetTimer}>
-          <GrPowerReset />
-        </button>
+        <div className="btn">
+          <button id="start" className="btn-add" onClick={startTimer}>
+            <MdOutlinePlayCircle />
+          </button>
+          <button id="stop" className="btn-stop" onClick={stopTimer}>
+            <FaRegStopCircle />
+          </button>
+          <button id="reset" className="btn-reset" onClick={resetTimer}>
+            <GrPowerReset />
+          </button>
+        </div>
       </div>
     </div>
   );

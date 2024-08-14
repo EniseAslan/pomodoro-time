@@ -22,6 +22,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .message {
@@ -59,4 +60,18 @@ body {
   border-radius: 5px;
   border: 1px solid #9d8e8e;
  
+}
+.body-timer{
+  
+
+ 
+  background-color: rgba(186, 167, 167, 0.5) ;
+  background-blend-mode: lighten;
+   min-width: 50px;
+   min-height: 550px;
+   padding: 50px;
+   box-sizing: border-box;
+   border-radius: 10px;
+   box-shadow: 3px 6px 40px #7d7151;
+   margin-bottom: 10px;
 }

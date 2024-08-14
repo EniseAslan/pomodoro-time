@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { MdOutlinePlayCircle } from "react-icons/md";
 import { FaRegStopCircle } from "react-icons/fa";
 import { GrPowerReset } from "react-icons/gr";
+import btn from "./btn";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
 
 function Form() {
   const [inputMinutes, setInputMinutes] = useState(0);
@@ -12,6 +15,7 @@ function Form() {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [intervalId, setIntervalId] = useState(null);
+  const [breakMinute, setBreakMinute] = useState(0);
 
   useEffect(() => {
     let interval = null;
@@ -23,11 +27,11 @@ function Form() {
             setSeconds(59);
             setMinutes(minutes - 1);
           } else {
-            let minutes = displayMessage ? 5 : 5;
+            let minutes = breakMinute !== 0 ? breakMinute : 5;
             let seconds = 59;
 
             setSeconds(seconds);
-            setMinutes(minutes);
+            setMinutes(minutes - 1);
             setDisplayMessage(!displayMessage);
           }
         } else {
@@ -42,6 +46,13 @@ function Form() {
   }, [isActive, isPaused, seconds]);
 
   const startTimer = () => {
+    if (inputMinutes <= 0 && inputSeconds <= 0) {
+      setMinutes(0);  
+      setSeconds(0);
+      alert("Lütfen geçerli bir zaman giriniz");
+      return;
+    }
+
     setMinutes(inputMinutes);
     setSeconds(inputSeconds);
     setIsActive(true);
@@ -49,10 +60,22 @@ function Form() {
   };
 
   const stopTimer = () => {
+    if (inputMinutes <= 0 && inputSeconds <= 0) {
+      setMinutes(0);
+      setSeconds(0);
+      alert("Lütfen geçerli bir zaman giriniz");
+      return;
+    }
     setIsPaused(true);
   };
 
   const resetTimer = () => {
+    if (inputMinutes <= 0 && inputSeconds <= 0) {
+      setMinutes(0);
+      setSeconds(0);
+      alert("Lütfen geçerli bir zaman giriniz");
+      return;
+    }
     setIsActive(false);
     setIsPaused(false);
     setMinutes(0);
@@ -81,6 +104,13 @@ function Form() {
           onChange={(e) => setInputSeconds(e.target.value)}
           min={"0"}
         />
+        <h2>Break </h2>
+        <input
+          type="number"
+          value={breakMinute}
+          onChange={(e) => setBreakMinute(e.target.value)}
+          min={"0"}
+        />
       </div>
       <div className="body-timer">
         <div className="message">
@@ -92,15 +122,25 @@ function Form() {
         </div>
 
         <div className="btn">
-          <button id="start" className="btn-add" onClick={startTimer}>
-            <MdOutlinePlayCircle />
-          </button>
-          <button id="stop" className="btn-stop" onClick={stopTimer}>
-            <FaRegStopCircle />
-          </button>
-          <button id="reset" className="btn-reset" onClick={resetTimer}>
+          <Tippy content="start">
+            <btn id="start" className="btn-add" onClick={startTimer}>
+              <MdOutlinePlayCircle />
+            </btn>
+          </Tippy>
+          <Tippy content="stop">
+            <btn id="stop" className="btn-stop" onClick={stopTimer}>
+              <FaRegStopCircle />
+            </btn>
+          </Tippy>
+
+          <btn
+            id="reset"
+            title={"asd"}
+            className="btn-reset"
+            onClick={resetTimer}
+          >
             <GrPowerReset />
-          </button>
+          </btn>
         </div>
       </div>
     </div>

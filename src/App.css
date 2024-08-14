@@ -1,5 +1,5 @@
 body {
-  background-image: url(sonja-langford-eIkbSc3SDtI-unsplash.jpg);
+  background-image:url(/public/image.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -62,9 +62,6 @@ body {
  
 }
 .body-timer{
-  
-
- 
   background-color: rgba(186, 167, 167, 0.5) ;
   background-blend-mode: lighten;
    min-width: 50px;
@@ -75,3 +72,4 @@ body {
    box-shadow: 3px 6px 40px #7d7151;
    margin-bottom: 10px;
 }
+

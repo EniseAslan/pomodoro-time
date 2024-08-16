@@ -47,7 +47,7 @@ function Form() {
 
   const startTimer = () => {
     if (inputMinutes <= 0 && inputSeconds <= 0) {
-      setMinutes(0);  
+      setMinutes(0);
       setSeconds(0);
       alert("Lütfen geçerli bir zaman giriniz");
       return;
@@ -92,26 +92,36 @@ function Form() {
   return (
     <div className="pomodoro">
       <div className="input-group">
-        <input
-          type="number"
-          value={inputMinutes}
-          onChange={(e) => setInputMinutes(e.target.value)}
-          min={"0"}
-        />
-        <input
-          type="number"
-          value={inputSeconds}
-          onChange={(e) => setInputSeconds(e.target.value)}
-          min={"0"}
-        />
-        <h2>Break </h2>
-        <input
-          type="number"
-          value={breakMinute}
-          onChange={(e) => setBreakMinute(e.target.value)}
-          min={"0"}
-        />
+        <div className="time">
+          <h6>Time:</h6>
+          <input
+            title="minutes"
+            type="number"
+            value={inputMinutes}
+            onChange={(e) => setInputMinutes(e.target.value)}
+            min={"0"}
+            style={{marginLeft:"30px"}}
+          />
+          <input
+            title="seconds"
+            type="number"
+            value={inputSeconds}
+            onChange={(e) => setInputSeconds(e.target.value)}
+            min={"0"}
+          />
+        </div>
+        <div className="break">
+          <h6>Break:</h6>
+          <input
+            title="minutes"
+            type="number"
+            value={breakMinute}
+            onChange={(e) => setBreakMinute(e.target.value)}
+            min={"0"}
+          />
+        </div>
       </div>
+
       <div className="body-timer">
         <div className="message">
           {displayMessage && <div>Time For A Break!</div>}
@@ -133,12 +143,7 @@ function Form() {
             </btn>
           </Tippy>
 
-          <btn
-            id="reset"
-            title={"asd"}
-            className="btn-reset"
-            onClick={resetTimer}
-          >
+          <btn id="reset" className="btn-reset" onClick={resetTimer}>
             <GrPowerReset />
           </btn>
         </div>

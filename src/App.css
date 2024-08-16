@@ -1,5 +1,5 @@
 body {
-  background-image: url(sonja-langford-eIkbSc3SDtI-unsplash.jpg);
+  background-image:url(/public/image.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -11,16 +11,19 @@ body {
 }
 
 .App {
-  height: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
- 
+  gap: 20px; 
+  height: 100%; 
+  flex-wrap: wrap;
 }
 
 .pomodoro {
   font-size: 6em;
-  display: flex;
-  flex-direction: column;
+ display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   text-align: center;
 }
@@ -49,6 +52,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
+  display: flex;
 }
 
 .input-group input {
@@ -61,17 +65,36 @@ body {
   border: 1px solid #9d8e8e;
  
 }
-.body-timer{
-  
+.input-group {
+  margin-right: 20px; 
+}
 
+
+
+.body-timer, .input-group{
  
-  background-color: rgba(186, 167, 167, 0.5) ;
+  background-color: rgba(186, 167, 167, 0.5);
   background-blend-mode: lighten;
-   min-width: 50px;
-   min-height: 550px;
-   padding: 50px;
-   box-sizing: border-box;
-   border-radius: 10px;
-   box-shadow: 3px 6px 40px #7d7151;
-   margin-bottom: 10px;
+  padding: 50px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 3px 6px 40px #7d7151;
+  margin-bottom: 5px;
+  min-width: 300px; 
+  min-height: 350px;
+  margin: 250px 50px;
+
+}
+
+
+.time, .break {
+  display: flex;
+
+  gap: 5px; 
+}
+
+.time h6, .break h6 {
+  margin: 0; 
+  font-size: 1ex; 
+padding: 10px;
 }
